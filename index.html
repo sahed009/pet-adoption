@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+
+    <!-- fontawesome cdn  -->
+    <script src="https://kit.fontawesome.com/bc52fcb791.js" crossorigin="anonymous"></script>
+
+    <!-- tailwind and daisyui cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.13.0/dist/full.css" rel="stylesheet">
+    <!-- google font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+
+
+    <style>
+        .font-inter {
+            font-family: "Inter", serif;
+        }
+
+        .font-lato {
+            font-family: "Lato", sans-serif;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+
+        .loader {
+            color: #FFF;
+            position: relative;
+            font-size: 11px;
+            background: black;
+            /* Change this to your desired color */
+            animation: escaleY 1s infinite ease-in-out;
+            width: 1em;
+            height: 4em;
+            animation-delay: -0.16s;
+        }
+
+        .loader:before,
+        .loader:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2em;
+            background: black;
+            /* Change this to your desired color */
+            width: 1em;
+            height: 4em;
+            animation: escaleY 1s infinite ease-in-out;
+        }
+
+        .loader:before {
+            left: -2em;
+            animation-delay: -0.32s;
+        }
+
+        @keyframes escaleY {
+
+            0%,
+            80%,
+            100% {
+                box-shadow: 0 0;
+                height: 4em;
+            }
+
+            40% {
+                box-shadow: 0 -2em;
+                height: 5em;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="font-lato scroll-smooth">
+
+    <!-- Nav -->
+    <nav class="navbar bg-white py-4 md:px-4">
+        <div class="container px-4 mx-auto flex justify-between items-center">
+
+
+            <div class="flex items-center space-x-2">
+                <a href="#" class="flex items-center">
+                    <img src="./assets/images/logo.webp" alt="Logo" class="h-8 sm:h-10">
+                    <span class="text-2xl font-bold text-black ml-2">Peddy</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden">
+                <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-square btn-ghost">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li onclick="scrollToSection('home')">
+                            <a href="#" class="text-gray-500 hover:text-black">Home</a>
+                        </li>
+                        <li onclick="scrollToSection('adoption')">
+                            <a href="#" class="text-gray-500 hover:text-black">Shop</a>
+                        </li>
+                        <li onclick="scrollToSection('contact')">
+                            <a href="#" class="text-gray-500 hover:text-black">Contact</a>
+                        </li>
+
+
+                        <li class="border-t mt-2 pt-2">
+                            <a href="#" class="text-gray-500 hover:text-black flex justify-center">
+                                <i class="fa-regular fa-user text-[#5A5A5A]"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Menu Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-500 hover:text-black" onclick="scrollToSection('home')">Home</a>
+                <a href="#" class="text-gray-500 hover:text-black" onclick="scrollToSection('adoption')">Shop</a>
+                <a href="#" class="text-gray-500 hover:text-black" onclick="scrollToSection('contact')">Contact</a>
+            </div>
+
+            <div class="hidden md:flex border border-[#CFE4E6] py-2 px-3 sm:py-3 sm:px-6 rounded-full">
+                <a href="#">
+                    <i class="fa-regular fa-user text-[#5A5A5A]"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Banner -->
+    <div id="home" class="text-center p-8 max-w-3xl mx-auto">
+        <p class="font-bold text-[#717171] text-lg md:text-2xl">Bringing Families Together ❤️</p>
+        <h1 class="text-5xl md:text-7xl font-black text-[#131313] my-4">Your Path to Adoption Starts Here</h1>
+        <p class="my-6">Begin your journey to finding a forever friend. Explore our wide range of pets, ready to become
+            a part of your family!</p>
+        <button class=" text-white text-xl font-bold bg-[#0E7A81] border-none mt-4 px-8 py-4 cursor-pointer rounded-xl"
+            onclick="scrollToSection('adoption')">View More</button>
+        <img src="./assets/images/pet.webp" alt="Pets" class="mx-auto mt-6 h-auto w-full">
+    </div>
+
+    <!-- Adoption -->
+    <section id="adoption" class="container px-4 py-4 md:px-10 md:py-6 mx-auto">
+        <div id="adoption-section" class="">
+            <div class="text-center mb-6 max-w-2xl mx-auto">
+                <h2 class="text-4xl font-black mb-4">Adopt Your Best Friend</h2>
+                <p class="text-[#5A5A5A] mb-10">Start your journey towards unconditional love and companionship. Explore
+                    a variety of pets eagerly
+                    waiting for a forever home. Give them the love they deserve and find your perfect match today!</p>
+            </div>
+
+            <!-- Category Buttons -->
+            <div id="category-buttons"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 justify-center items-center mb-4">
+            </div>
+
+
+            <!-- Sort Button -->
+            <div class="flex justify-center md:justify-end py-4 mb-8">
+                <button
+                    class="text-white text-xl font-bold bg-[#0E7A81] border-none mt-4 px-8 py-3 cursor-pointer rounded-xl"
+                    onclick="sortByPrice()">Sort by Price</button>
+            </div>
+
+            <!-- Pets & Sidebar -->
+            <div class="grid grid-cols-4 gap-6 relative">
+
+                <!-- Left: Pets -->
+                <div class="col-span-4 lg:col-span-3 relative order-2 lg:order-1">
+                    <p class="text-2xl font-black mb-4">Best Deals For You</p>
+
+                    <!-- spinner  -->
+                    <div id="spinner" class="loader m-auto"></div>
+
+                    <div id="pets-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Pet Cards -->
+                    </div>
+
+
+                    <!-- Adoption Modal -->
+                    <div id="adopt-modal"
+                        class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-11/12 text-center mx-auto">
+                            <img src="./assets/images/adopt-modal.jpg" alt="Happy Dog"
+                                class="w-40 h-40 rounded-lg mx-auto mb-6">
+
+                            <h2 class="text-3xl font-bold font-inter text-gray-800 mb-2">Congrats!!</h2>
+
+                            <p class="text-gray-600 mb-2 text-xl">Adoption process will complete in...</p>
+
+                            <p class="text-4xl font-bold font-inter text-blue-600">
+                                <span id="countdown">3</span>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <div id="no-data-container"
+                        class="hidden flex flex-col items-center justify-center px-8 py-16 rounded-lg h-vh w-full bg-[#F8F8F8]">
+                        <img src="./assets/images/error.webp" alt="No Data" class="w-24 h-24">
+                        <h2 class="text-2xl font-bold mt-4">No Information Available</h2>
+                        <p class="text-gray-500 text-center mt-2">
+                            No animals are currently available in this category. Please check back later!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Liked Pets -->
+                <div class="col-span-4 lg:col-span-1 order-1 lg:order-2">
+                    <div id="sidebar" class="bg-white border border-[#E7E7E7] rounded-lg p-4">
+                        <div id="liked-pets" class="grid grid-cols-2 gap-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div id="details-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
+
+
+            <img id="modal-pet-image" src="" alt="Pet Image" class="w-full h-64 object-cover rounded mb-4">
+
+            <h2 id="modal-pet-name" class="text-2xl font-bold mb-2"></h2>
+
+            <div class="grid grid-cols-2 gap-4 items-center mb-2">
+
+                <div class="col-span-1 flex items-center">
+                    <i class="fa fa-paw mr-1" style="color: #5a5a5a;"></i>
+                    <p id="modal-pet-breed" class="text-sm"></p>
+                </div>
+
+
+                <div class="col-span-1 flex items-center">
+                    <i class="fa fa-calendar mr-1" style="color: #5a5a5a;"></i>
+                    <p id="modal-pet-age" class="text-sm"></p>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-2">
+
+
+                <div class="col-span-1 flex items-center">
+                    <i class="fa fa-venus-mars mr-1" style="color: #5a5a5a;"></i>
+                    <p id="modal-pet-gender" class="text-sm"></p>
+                </div>
+
+                <div class="col-span-1 flex items-center">
+                    <i class="fa-solid fa-dollar-sign mr-1" style="color: #5a5a5a;"></i>
+                    <p id="modal-pet-price" class="text-sm"></p>
+                </div>
+            </div>
+
+            <div class="flex items-center mb-3">
+                <i class="fa fa-syringe mr-1" style="color: #5a5a5a;"></i>
+                <p id="modal-pet-vaccinated" class="text-sm"></p>
+            </div>
+
+            <div class="border-t pt-2">
+                <h3 class="text-md font-semibold mb-1">Details Information</h3>
+                <p id="modal-pet-description" class="text-sm text-gray-600"></p>
+            </div>
+
+            <button onclick="closeModal()"
+                class="w-full bg-[#E7F2F2] border border-[#BCDADB] text-[#0E7A81] mt-4 rounded-lg font-bold text-lg cursor-pointer py-1">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+
+
+    <footer id="contact" class="bg-gray-900 text-white py-10">
+        <div class="container px-6 md:px-10 max-w-xl md:max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+
+            <div class="col-span-1">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-paw text-teal-500 text-2xl mr-2"></i>
+                    <h1 class="text-xl font-bold">Peddy</h1>
+                </div>
+                <p class="text-[#E7E7E7] leading-8">Location: av. Washington 165, NY CA 54003</p>
+                <p class="text-[#E7E7E7] leading-8">Phone: +31 85 964 47 25</p>
+                <p class="text-[#E7E7E7] leading-8">Email: info@yourdomain.com</p>
+                <p class="text-[#E7E7E7] leading-8">Opening hours: 9.00 AM - 5.00 PM</p>
+                <div class="flex mt-4 space-x-4">
+                    <a href="#" class="text-blue-500 hover:text-blue-400">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">
+                        <i class="fab fa-x-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-red-500 hover:text-red-400">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-pink-600 hover:text-pink-500">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="col-span-1 flex flex-col md:items-center md:justify-center">
+                <h2 class="text-lg font-semibold mb-4">Useful Links</h2>
+                <ul>
+                    <li class="mb-2"><a href="#" class="text-[#E7E7E7]">Home</a></li>
+                    <li class="mb-2"><a href="#" class="text-[#E7E7E7]">About Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-[#E7E7E7]">Animals</a></li>
+                    <li class="mb-2"><a href="#" class="text-[#E7E7E7]">Foundation</a></li>
+                    <li class="mb-2"><a href="#" class="text-[#E7E7E7]">Contact</a></li>
+                </ul>
+            </div>
+
+
+
+            <div class="col-span-1 w-5/6">
+                <h2 class="text-lg font-semibold mb-4">Drop a Message</h2>
+                <form class="flex flex-col space-y-4">
+                    <input type="email" placeholder="Enter your email"
+                        class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:border-teal-500" />
+                    <button type="submit"
+                        class="w-full px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-md">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
